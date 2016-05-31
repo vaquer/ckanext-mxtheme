@@ -61,9 +61,8 @@
 
                                 <div id="content" class="col-md-9">
                                     {% block primary %}
-                                        {% block primary_content %}
-                                            
-                                        {% endblock %}
+                                        {% block primary_content %}{% endblock %}
+                                        {% block primary_content_inner %}{% endblock %}
                                     {% endblock %}
                                 </div>
                             </div>
