@@ -5,15 +5,15 @@
 {% set search_class = search_class if search_class else 'search-giant' %}
 {% set no_bottom_border = no_bottom_border if no_bottom_border else false %}
 
-<form class="form-inline search-form{% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">
+<form class="form-inline {% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">
 
   {% block search_input %}
-    <div class="search-input control-group {{ search_class }} col-md-12 form-group search-keyword">
-      <input type="text" class="search form-control block" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}">
-      <button type="submit" value="search">
-        <i class="icon-search glyphicon glyphicon-search"></i>
+    <div class="col-md-12 form-group search-keyword">
+      <input type="text" class="form-control block" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}">
+      {# <button type="submit" value="search"> #}
+        <i class="glyphicon glyphicon-search"></i>
         <span>{{ _('Submit') }}</span>
-      </button>
+      {# </button> #}
     </div>
   {% endblock %}
 
