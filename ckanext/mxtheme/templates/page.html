@@ -1,0 +1,49 @@
+{% ckan_extends %}
+
+{% block content %}
+    {% block maintag %}<div role="main">{% endblock %}
+        {% block main_content %}
+          {% block flash %}
+            {% set flash_messages = h.flash.pop_messages() | list %}
+            <div class="flash-messages">
+              {% for message in flash_messages %}
+                <div class="alert fade in {{ message.category }}">
+                  {{ h.literal(message) }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endblock %}
+          {% block toolbar %}
+            <div class="toolbar breadcrumb-container">
+               <div class="container-fluid">
+                 <div class="row">
+                   {% block breadcrumb %}
+                     {% if self.breadcrumb_content() | trim %}
+                        <div class="col-md-7">
+                            <ul class="breadcrumb">
+                             {% snippet 'snippets/home_breadcrumb_item.html' %}
+                              {% block breadcrumb_content %}{% endblock %} 
+                            </ul>
+                        </div>
+                        {# 
+                       <ol class="breadcrumb">
+                         {% snippet 'snippets/home_breadcrumb_item.html' %}
+                         {% block breadcrumb_content %}{% endblock %}
+                       </ol>
+                        #}                   
+                     {% endif %}
+                    {% endblock %}
+                     <div class="col-md-5">
+                        <ul class="submenu">
+                            <li class="active"><a href="/dataset">Todos los datos</a></li>
+                            <li><a href="/organization">Instituciones</a></li>
+                            <li><a href="/group">Grupos</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                </div>
+            </div>
+          {% endblock %}
+        {% endblock %}
+    </div>
+{% endblock %}
