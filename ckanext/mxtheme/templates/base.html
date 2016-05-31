@@ -1,0 +1,11 @@
+{% ckan_extends %}
+
+{% block links %}
+	{{ super() }}
+	{#<link rel="stylesheet" type="text/css" href="">	#}
+{% endblock %}
+
+{% block styles %}
+	{{ super() }}
+	{% resource 'ckanext-mxtheme/mx.css' %}	
+{% endblock %}
