@@ -15,7 +15,7 @@ Example:
 <div class="col-md-4">
     <div class="institution-item result-item">
         {% block image %}
-        <a href="{{ url }}"><img src="{{ organization.image_display_url or h.url_for_static('/base/images/placeholder-organization.png') }}" alt="{{ organization.name }}" ></a>
+        <a href="{{ url }}" style="display: block !important;"><img src="{{ organization.image_display_url or h.url_for_static('/base/images/placeholder-organization.png') }}" alt="{{ organization.name }}" ></a>
         {% endblock %}
         {% block title %}
         <p><a href="{{ url }}"><strong>{{ organization.display_name }}</strong></a></p>         
