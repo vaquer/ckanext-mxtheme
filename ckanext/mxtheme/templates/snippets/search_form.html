@@ -9,7 +9,16 @@
   {% block search_input %}
     <div class="col-md-12 form-group search-keyword">
       <input type="text" class="form-control block" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}">
-       <button type="submit" value="search">
+       <button type="submit" value="search" style="cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    right: 10px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: transparent;">
           <i class="glyphicon glyphicon-search"></i>
       </button>
     </div>
