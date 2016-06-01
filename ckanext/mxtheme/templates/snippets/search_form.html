@@ -62,7 +62,7 @@
 <div class="col-md-12">
   {% block search_facets %}
     {% if facets %}
-      <p class="filter-list">
+      <p class="filters-list">
         {% for field in facets.fields %}
           <span>
           {% set search_facets_items = facets.search.get(field)['items'] %}
