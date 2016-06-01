@@ -1,0 +1,24 @@
+
+{#
+Display a grid of group items.
+
+groups - A list of groups.
+
+Example:
+
+    {% snippet "group/snippets/group_list.html" %}
+
+#}
+<div class="row">
+    <div class="col-md-12">
+      {% for group in groups %}
+        {% if loop.index == 1 or loop.index % 3 == 1%}
+            <div class="row">
+        {% endif %}
+        {% snippet "group/snippets/group_item.html", group=group, position=loop.index %}
+        {% if loop.index is divisibleby 3 %}
+            </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+</div>

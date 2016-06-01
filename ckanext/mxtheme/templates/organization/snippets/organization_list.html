@@ -10,14 +10,14 @@ Example:
 #}
 <div class="row">
     <div class="col-md-12">
-  	{% for organization in organizations %}
-  		{% if loop.index == 1 or loop.index % 3 == 1%}
-  			<div class="row">
-  		{% endif %}
-    	{% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index %}
-    	{% if loop.index is divisibleby 3 %}
-    		</div>
-    	{% endif %}
-  	{% endfor %}
-	</div>
-</div>	
+    {% for organization in organizations %}
+      {% if loop.index == 1 or loop.index % 3 == 1%}
+        <div class="row">
+      {% endif %}
+      {% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index %}
+      {% if loop.index is divisibleby 3 %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
