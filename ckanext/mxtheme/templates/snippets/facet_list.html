@@ -38,7 +38,6 @@ within_tertiary
 
 #}
 {% block facet_list %}
-  <h3>Filtrar por</h3>
   {% set hide_empty = hide_empty or false %}
   {% with items = items or h.get_facet_items_dict(name) %}
     {% if items or not hide_empty %}

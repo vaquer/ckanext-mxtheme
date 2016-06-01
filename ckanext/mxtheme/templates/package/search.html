@@ -33,6 +33,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="datasets-container" class="container-fluid">
+                    <h3>Filtrar por</h3>
                     {% block package_search_results_list %}
                       {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
                     {% endblock %}
