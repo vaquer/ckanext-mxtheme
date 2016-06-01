@@ -1,0 +1,7 @@
+{% set current_url = h.full_current_url() %}
+<h4 >{{ _('Social') }}</h4>
+<ul class="filters-menu">
+   <li><a href="https://plus.google.com/share?url={{ current_url }}" target="_blank">Google+</a></li>
+   <li><a href="https://twitter.com/share?url={{ current_url }}" target="_blank">Twitter</a></li>
+   <li><a href="https://www.facebook.com/sharer.php?u={{ current_url }}" target="_blank">Facebook</a></li>
+</ul>
