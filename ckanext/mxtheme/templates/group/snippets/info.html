@@ -1,0 +1,14 @@
+<p class="text-center">
+  <a href="{{ url }}">
+    <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" width="200" alt="{{ group.name }}" />
+  </a>
+</p>
+
+<h2 class="institution-name">{{ group.display_name}}</h2>
+{% if group.description %}
+	<p>
+      {{ h.markdown_extract(group.description, 180) }}
+        {% link_for _('read more'), controller='group', action='about', id=group.name %}
+    </p>
+  {% endif %}
+{% endif %}
