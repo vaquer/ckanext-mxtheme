@@ -15,13 +15,7 @@ Example:
 
 #}
 {% if packages %}
-  <div class="row">
-    <div class="col-md-12">
-        <div id="datasets-container" class="container-fluid">
-        {% for package in packages %}
-          {% snippet 'snippets/package_item.html', package=package, item_class=item_class, hide_resources=hide_resources, banner=banner, truncate=truncate, truncate_title=truncate_title %}
-        {% endfor %}
-        </div>
-    </div>
-  </div>
+  {% for package in packages %}
+    {% snippet 'snippets/package_item.html', package=package, item_class=item_class, hide_resources=hide_resources, banner=banner, truncate=truncate, truncate_title=truncate_title %}
+  {% endfor %}
 {% endif %}
