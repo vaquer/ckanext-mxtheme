@@ -27,9 +27,15 @@
       </div>
     {% endblock %}
   {% block packages_list %}
-    {% if c.page.items %}
-      {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
-    {% endif %}
+    <div class="row">
+      <div class="col-md-12">
+          <div id="datasets-container" class="container-fluid">
+          {% if c.page.items %}
+            {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
+          {% endif %}
+          </div>
+      </div>
+    </div>
   {% endblock %}
   {% block page_pagination %}
     {{ c.page.pager(q=c.q) }}
