@@ -6,10 +6,9 @@
 </p>
 
 <h2 class="institution-name">{{ group.display_name }}</h2>
-  {% if group.description %}
-      <p>
-        {{ h.markdown_extract(group.description, 180) }}
-        {% link_for _('read more'), controller='group', action='about', id=group.name %}
-      </p>
-    {% endif %}
+{% if group.description %}
+  <p>
+    {{ h.markdown_extract(group.description, 180) }}
+    {% link_for _('read more'), controller='group', action='about', id=group.name %}
+  </p>
 {% endif %}
