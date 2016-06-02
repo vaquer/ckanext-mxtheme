@@ -9,8 +9,8 @@ Example:
 
 #}
 {% if pkg %}
-  {# 
   <h2 class="heading">{{ pkg.title or pkg.name }}</h2>
+  {# 
   <h4>{{ _('Followers') }}</h4>
   <dl>
     <dd>{{ h.SI_number_span(h.get_action('dataset_follower_count', {'id': pkg.id})) }}</dd>
