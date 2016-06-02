@@ -9,6 +9,7 @@ Example:
 
 #}
 {% if pkg %}
+  {# 
   <h2 class="heading">{{ pkg.title or pkg.name }}</h2>
   <h4>{{ _('Followers') }}</h4>
   <dl>
@@ -19,4 +20,5 @@ Example:
       {{ h.follow_button('dataset', pkg.name) }}
     </p>
   {% endif %}
+  #}
 {% endif %}
