@@ -49,7 +49,7 @@ Example:
     <div class="col-md-2 col-md-offset-1">
         {% if package.organization %}
           <p><strong>Instituci&oacute;n</strong></p>
-          <p class="dependency"><strong>package.organization.title</strong></p>          
+          <p class="dependency"><strong>{{package.organization.title}}</strong></p>          
         {% endif %}
         <p>Formato</p>
         {% if package.resources and not hide_resources %}
