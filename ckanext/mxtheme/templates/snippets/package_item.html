@@ -23,7 +23,7 @@ Example:
     
   {% endblock %}
     <div class="col-md-9">
-        <p class="dataset-date"><span class="tag-icon tag-geoespacial"></span><span>Actualización: <strong>{{package.metadata_modified.strftime('%Y/%m/%d')}}</strong></span></p>
+        <p class="dataset-date"><span class="tag-icon tag-geoespacial"></span><span>Actualización: <strong>{{h.format_display_date(package.metadata_modified, format='%Y/%m/%d')}}</strong></span></p>
         <h3>{% if package.private %}
           <span class="dataset-private label label-inverse">
             <i class="icon-lock"></i>
