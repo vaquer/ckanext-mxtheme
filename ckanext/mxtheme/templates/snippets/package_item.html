@@ -47,8 +47,10 @@ Example:
     </div>
 
     <div class="col-md-2 col-md-offset-1">
-        <p>Dependencia</p>
-        <p class="dependency">INEGI</p>
+        {% if package.organization %}
+          <p><strong>Instituci&oacute;n</strong></p>
+          <p class="dependency"><strong>package.organization.title</strong></p>          
+        {% endif %}
         <p>Formato</p>
         {% if package.resources and not hide_resources %}
             {% for resource in h.dict_list_reduce(package.resources, 'format') %}
