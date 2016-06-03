@@ -3,7 +3,7 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
 
-def format_display_date(time_stamp, format_date="%Y-%m-%d"):
+def format_display_date(time_stamp, format_date="%Y/%m/%d"):
     date_object = datetime.datetime.strptime(time_stamp, "%Y-%m-%d %H:%M:%S.%f")
     return date_object.strftime(format_date)
 
