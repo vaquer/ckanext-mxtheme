@@ -7430,6 +7430,12 @@ h1:after {
   width: calc(100% - 45px);
   float: right;
 }
+.activity-list > li > p > a {
+  color: #0c9;
+}
+.activity-list > li > p > a:hover {
+  color: #00aa80;
+}
 .activity-icon {
   display: block;
   width: 30px;
