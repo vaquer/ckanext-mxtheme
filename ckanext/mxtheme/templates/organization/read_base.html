@@ -1,3 +1,9 @@
 {% ckan_extends %}
 
 {% block title_content_mx %}{{_('Organizations')}}{% endblock %}
+
+{% block secondary_content %}
+  {% snippet 'snippets/organization.html', organization=c.group_dict, show_nums=true %}
+   <a href="https://www.data.gov/issue/?media_url={{g.site_url}}{{ h.url_for(controller='package', action='read', id=pkg.name) }}" class="btn btn-info"> <i class="icon-bullhorn"></i>Solicitar Conjunto de Datos</a>
+  {% block organization_facets %}{% endblock %}
+{% endblock %}
