@@ -43,7 +43,7 @@
 {% endblock %}
 
 {% block button_report %}
-  <a href="https://www.data.gov/issue/?media_url={{g.site_url}}{{ h.url_for(controller='organization', action='read', id=c.group_dict.name) }}" class="btn btn-info"> <i class="icon-bullhorn"></i>Solicitar Conjunto de Datos</a>    
+  <a href="https://www.data.gov/issue/?media_url={{g.site_url}}{{ h.url_for(controller='organization', action='read', id=c.group_dict.name) }}" class="btn btn-primary" style="margin-bottom: 10px;"> <i class="icon-bullhorn" style="margin-right: 10px;"></i>Solicitar Conjunto de Datos</a>    
 {% endblock %}
 
 {% block organization_facets %}
