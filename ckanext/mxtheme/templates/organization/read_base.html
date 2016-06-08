@@ -4,6 +4,8 @@
 
 {% block secondary_content %}
   {% snippet 'snippets/organization.html', organization=c.group_dict, show_nums=true %}
-   <a href="https://www.data.gov/issue/?media_url={{g.site_url}}{{ h.url_for(controller='package', action='read', id=pkg.name) }}" class="btn btn-info"> <i class="icon-bullhorn"></i>Solicitar Conjunto de Datos</a>
+  {% block button_report %}
+   	<a href="https://www.data.gov/issue/?media_url={{g.site_url}}{{ h.url_for(controller='package', action='read', id=pkg.name) }}" class="btn btn-info"> <i class="icon-bullhorn"></i>Solicitar Conjunto de Datos</a>  	
+  {% endblock %}
   {% block organization_facets %}{% endblock %}
 {% endblock %}

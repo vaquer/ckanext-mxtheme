@@ -42,6 +42,10 @@
   {% endblock %}
 {% endblock %}
 
+{% block button_report %}
+  <a href="https://www.data.gov/issue/?media_url={{g.site_url}}{{ h.url_for(controller='package', action='read', id=pkg.name) }}" class="btn btn-info"> <i class="icon-bullhorn"></i>Solicitar Conjunto de Datos</a>    
+{% endblock %}
+
 {% block organization_facets %}
   {% for facet in c.facet_titles %}
     {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet, extras={'id':c.group_dict.id}) }}
