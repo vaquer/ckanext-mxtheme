@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block content_action %}
+   <a href="https://www.data.gov/issue/?media_url={{g.site_url}}{{ h.url_for(controller='package', action='read', id=pkg.name) }}" class="btn btn-info"> <i class="icon-bullhorn"></i>Solicitar Conjunto de Datos</a>
   {% if h.check_access('organization_update', {'id': c.group_dict.id}) %}
     {% link_for _('Manage'), controller='organization', action='edit', id=c.group_dict.name, class_='btn', icon='wrench' %}
   {% endif %}
@@ -24,7 +25,7 @@
 {% block secondary_content %}
   {% snippet 'snippets/organization.html', organization=c.group_dict, show_nums=true %}
   {% block button_report %}
-   	<a href="https://www.data.gov/issue/?media_url={{g.site_url}}{{ h.url_for(controller='package', action='read', id=pkg.name) }}" class="btn btn-info"> <i class="icon-bullhorn"></i>Solicitar Conjunto de Datos</a>  	
+   	<a href="https://www.data.gov/issue/?media_url={{g.site_url}}{{ h.url_for(controller='package', action='read', id=pkg.name) }}" class="btn btn-info"> <i class="icon-bullhorn"></i>Solicitar Conjunto de Datos</a>
   {% endblock %}
   {% block organization_facets %}{% endblock %}
 {% endblock %}
