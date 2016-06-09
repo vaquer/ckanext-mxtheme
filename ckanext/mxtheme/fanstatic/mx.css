@@ -7243,6 +7243,7 @@ h1:after {
 }
 #content .panel {
   margin: 30px 0;
+  overflow: hidden;
 }
 .dataset-item,
 .result-item {
