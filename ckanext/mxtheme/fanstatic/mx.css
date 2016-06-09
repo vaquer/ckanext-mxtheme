@@ -7129,7 +7129,7 @@ dgm-footer {
 /********************************
     Pagination Styles
 ********************************/
-.pagination {
+.pagination ul {
   margin: 20px auto 100px;
   position: relative;
   left: 50%;
@@ -7137,9 +7137,9 @@ dgm-footer {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
 }
-.pagination > li.active > a,
-.pagination > li.active > a:hover,
-.pagination > li:hover > a {
+.pagination ul > li.active > a,
+.pagination ul > li.active > a:hover,
+.pagination ul > li:hover > a {
   background-color: #d8d8d8;
   border-color: #d8d8d8;
 }
