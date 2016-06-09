@@ -1,0 +1,91 @@
+{% extends "page.html" %}
+
+{% set user = c.user_dict %}
+
+{% block subtitle %}{{ user.display_name }} - {{ _('Users') }}{% endblock %}
+{% block title_content_mx %}{{ _('Users') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  {{ h.build_nav('user_index', _('Users')) }}
+  {{ h.build_nav('user_datasets', user.display_name|truncate(35), id=user.name) }}
+{% endblock %}
+
+{% block content_action %}
+  {% if h.check_access('user_update', user) %}
+    {% link_for _('Manage'), controller='user', action='edit', id=user.name, class_='btn', icon='wrench' %}
+  {% endif %}
+{% endblock %}
+
+{% block content_primary_nav %}
+  {{ h.build_nav_icon('user_datasets', _('Datasets'), id=user.name) }}
+  {{ h.build_nav_icon('user_activity_stream', _('Activity Stream'), id=user.name) }}
+{% endblock %}
+
+{% block secondary_content %}
+    {% block secondary_content_inner %}
+      {% block user_image %}
+      <p class="text-center">
+        <div class="image">{{ h.linked_gravatar(user.email_hash, 190) }}</div>
+      </p>
+      {% endblock %}
+      {% block user_heading %}
+      <h2 class="institution-name">{{ user.display_name }}</h1>
+      {% endblock %}
+      {% block user_about %}
+      {% if c.about_formatted %}
+        {{ c.about_formatted }}
+      {% else %}
+        <p class="text-center">
+          {% if c.is_myself %}
+            {% trans %}You have not provided a biography.{% endtrans %}
+          {% else %}
+            {% trans %}This user has no biography.{% endtrans %}
+          {% endif %}
+        </p>
+      {% endif %}
+      {% endblock %}
+      {% block user_nums %}
+      <h4>{{ _('Followers') }}</h4>
+      <p>{{ h.SI_number_span(user.num_followers) }}</p>
+
+      <h4>{{ _('Datasets') }}</h4>
+      <p>{{ h.SI_number_span(user.number_created_packages) }}</p>
+
+      <h4>{{ _('Edits') }}</h4>
+      <p>{{ h.SI_number_span(user.number_of_edits) }}</p>
+      {% endblock %}
+      {% if c.is_myself == false %}
+        {% block user_follow %}
+        <div class="follow_button">
+          {{ h.follow_button('user', user.id) }}</li>
+        </div>
+        {% endblock %}
+      {% endif %}
+      {% block user_info %}
+        {% if user.name.startswith('http://') or user.name.startswith('https://') %}
+            <h4>{{ _('Open') }}</h4>
+            <p>{{ user.name|urlize(25) }}{# Be great if this just showed the domain #}</p>
+        {% else %}
+            <h4>{{ _('Username') }}</h4>
+            <p>{{ user.name }}</p>
+        {% endif %}
+
+        {% if c.is_myself %}
+          <h4>{{ _('Email') }} <span class="label" title="{{ _('This means only you can see this') }}">{{ _('Private') }}</span></h4>
+          <p>{{ user.email }}</p>
+        {% endif %}
+
+        <h4>{{ _('Member Since') }}</h4>
+        <p>{{ {{ h.render_datetime(user.created) }} }}</p>
+
+        <h4>{{ _('State') }}</h4>
+        <p>{{ _(user.state) }}</p>
+
+        {% if c.is_myself %}
+          <h4>{{ _('API Key') }} <span class="label" title="{{ _('This means only you can see this') }}">{{ _('Private') }}</span></h4>
+          <p><code>{{ user.apikey }}</code></p>
+        {% endif %}
+      {% endblock %}
+      
+    {% endblock %}
+{% endblock %}
