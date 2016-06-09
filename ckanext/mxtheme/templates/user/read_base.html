@@ -25,7 +25,7 @@
     {% block secondary_content_inner %}
       {% block user_image %}
       <p class="text-center">
-        <div class="image">{{ h.linked_gravatar(user.email_hash, 190) }}</div>
+        {{ h.linked_gravatar(user.email_hash, 190) }}
       </p>
       {% endblock %}
       {% block user_heading %}
