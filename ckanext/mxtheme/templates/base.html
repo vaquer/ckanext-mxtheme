@@ -1,21 +1,39 @@
 {% ckan_extends %}
 
 {% block links %}
-	{{ super() }}
-	{#<link rel="stylesheet" type="text/css" href="">	#}
-	<link rel="import" href="/bower_components/polymer/polymer.html">
+    {{ super() }}
+    {#<link rel="stylesheet" type="text/css" href="">   #}
+    <link rel="import" href="/bower_components/polymer/polymer.html">
     <link rel="import" href="/bower_components/dgm-navbar/dgm-navbar.html">
     <link rel="import" href="/bower_components/dgm-footer/dgm-footer.html">
+    <!-- Required by Chartbeat -->
+    <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 {% endblock %}
 
 {% block styles %}
-	{# {{ super() }} #}
-	{% resource 'mxtheme/mx.css' %}	
+    {# {{ super() }} #}
+    {% resource 'mxtheme/mx.css' %} 
 {% endblock %}
 
 {% block scripts %}
-	{% resource 'mxtheme/mx.js' %}	
-	<script src="/bower_components/jquery/dist/jquery.js"></script>
+    {% resource 'mxtheme/mx.js' %}  
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script type="text/javascript">
+      var _sf_async_config = { uid: 62850, domain: 'datos.gob.mx', useCanonical: true };
+      (function() {
+        function loadChartbeat() {
+          window._sf_endpt = (new Date()).getTime();
+          var e = document.createElement('script');
+          e.setAttribute('language', 'javascript');
+          e.setAttribute('type', 'text/javascript');
+          e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+          document.body.appendChild(e);
+        };
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+          loadChartbeat : function() { oldonload(); loadChartbeat(); };
+      })();
+    </script>
 {% endblock %}
